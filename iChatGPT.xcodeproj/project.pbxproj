@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3DD13C29C5D1F4006F746C /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3DD13B29C5D1F4006F746C /* OpenAI */; };
 		6D5C556B2944408700FCF891 /* ImageLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C556A2944408700FCF891 /* ImageLoaderView.swift */; };
 		6DAA91802943448D004ACD01 /* MarkdownText in Frameworks */ = {isa = PBXBuildFile; productRef = 6DAA917F2943448D004ACD01 /* MarkdownText */; };
 		6DAA9182294346D8004ACD01 /* MarkdownStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAA9181294346D8004ACD01 /* MarkdownStyles.swift */; };
@@ -25,7 +26,6 @@
 		6DC88B142942C8E000DA6C55 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC88B132942C8E000DA6C55 /* Strings.swift */; };
 		6DC88B192942D0B700DA6C55 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC88B182942D0B700DA6C55 /* Dates.swift */; };
 		6DC88B1B2942E84A00DA6C55 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC88B1A2942E84A00DA6C55 /* MultilineTextField.swift */; };
-		8D204CCE29B5FB7D00AD3056 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D204CCD29B5FB7D00AD3056 /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F3DD13929C5D1B9006F746C /* OpenAI_proxy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OpenAI_proxy; path = ../OpenAI_proxy; sourceTree = "<group>"; };
 		6D5C55682944317300FCF891 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D5C556A2944408700FCF891 /* ImageLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderView.swift; sourceTree = "<group>"; };
 		6D7C1A202945809C008EB1CA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -76,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D204CCE29B5FB7D00AD3056 /* OpenAI in Frameworks */,
+				3F3DD13C29C5D1F4006F746C /* OpenAI in Frameworks */,
 				6DAA91802943448D004ACD01 /* MarkdownText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,15 +99,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3DD13829C5D1B9006F746C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3F3DD13929C5D1B9006F746C /* OpenAI_proxy */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		3F3DD13A29C5D1F4006F746C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6DC88AD12942C8AD00DA6C55 = {
 			isa = PBXGroup;
 			children = (
+				3F3DD13829C5D1B9006F746C /* Packages */,
 				6D7C1A202945809C008EB1CA /* README.md */,
 				6D7C1A21294580A5008EB1CA /* LICENSE */,
 				6DC88ADC2942C8AD00DA6C55 /* iChatGPT */,
 				6DC88AED2942C8AE00DA6C55 /* iChatGPTTests */,
 				6DC88AF72942C8AE00DA6C55 /* iChatGPTUITests */,
 				6DC88ADB2942C8AD00DA6C55 /* Products */,
+				3F3DD13A29C5D1F4006F746C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,7 +219,7 @@
 			name = iChatGPT;
 			packageProductDependencies = (
 				6DAA917F2943448D004ACD01 /* MarkdownText */,
-				8D204CCD29B5FB7D00AD3056 /* OpenAI */,
+				3F3DD13B29C5D1F4006F746C /* OpenAI */,
 			);
 			productName = iChatGPT;
 			productReference = 6DC88ADA2942C8AD00DA6C55 /* iChatGPT.app */;
@@ -279,7 +297,6 @@
 			mainGroup = 6DC88AD12942C8AD00DA6C55;
 			packageReferences = (
 				6DAA917E2943448D004ACD01 /* XCRemoteSwiftPackageReference "MarkdownText" */,
-				8D204CCC29B5FB7D00AD3056 /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 6DC88ADB2942C8AD00DA6C55 /* Products */;
 			projectDirPath = "";
@@ -693,26 +710,17 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		8D204CCC29B5FB7D00AD3056 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:MacPaw/OpenAI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.5;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F3DD13B29C5D1F4006F746C /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenAI;
+		};
 		6DAA917F2943448D004ACD01 /* MarkdownText */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6DAA917E2943448D004ACD01 /* XCRemoteSwiftPackageReference "MarkdownText" */;
 			productName = MarkdownText;
-		};
-		8D204CCD29B5FB7D00AD3056 /* OpenAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8D204CCC29B5FB7D00AD3056 /* XCRemoteSwiftPackageReference "OpenAI" */;
-			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
