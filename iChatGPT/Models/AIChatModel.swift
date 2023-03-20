@@ -11,7 +11,7 @@ struct AIChat: Codable {
     var answer: String?
     var isResponse: Bool = false
     var userAvatarUrl: String
-    var botAvatarUrl: String = "https://chat.openai.com/apple-touch-icon.png"
+    var botAvatarUrl: String = "https://www.freelogovectors.net/wp-content/uploads/2023/01/chatgpt-logo-freelogovectors.net_.png"
 }
 
 

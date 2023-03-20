@@ -11,7 +11,7 @@ import Combine
 import OpenAI
 
 class Chatbot {
-	var userAvatarUrl = "https://raw.githubusercontent.com/37iOS/iChatGPT/main/icon.png"
+	var userAvatarUrl = "https://www.freelogovectors.net/wp-content/uploads/2023/01/chatgpt-logo-freelogovectors.net_.png"
     var openAIKey = ""
     var openAI:OpenAI
     var answer = ""
@@ -37,14 +37,24 @@ class Chatbot {
         for i in 0..<prompts.count {
             if i == prompts.count - 1 {
                 messages.append(.init(role: "user", content: prompts[i].issue))
+                messages.append(.init(role: "system", content: "You are a helpful assistant."))
                 break
             }
-            messages.append(.init(role: "user", content: prompts[i].issue))
-            messages.append(.init(role: "assistant", content: prompts[i].answer!))
+//            messages.append(.init(role: "user", content: prompts[i].issue))
+            let answer = prompts[i].answer!
+            if !answer.isEmpty {
+                messages.append(.init(role: "system", content: "You are a helpful assistant."))
+                messages.append(.init(role: "assistant", content: answer))
+                messages.append(.init(role: "user", content: prompts[i].issue))
+            }
+//            else {
+//                messages.append(.init(role: "assistant", content: "你是个助手。"))
+//
+//            }
         }
         print("message:")
         print(messages)
-        let query = OpenAI.ChatQuery(model: .gpt3_5Turbo, messages: messages)
+        let query = OpenAI.ChatQuery(model: .gpt3_5Turbo, messages: messages, temperature: 0.8, max_tokens: 2048)
         openAI.chats(query: query) { data in
             print("data")
             print(data)
@@ -55,9 +65,9 @@ class Chatbot {
                 }
             } catch {
                 print(error)
-                let errorMessage = error.localizedDescription
+//                let errorMessage = error.localizedDescription
                 DispatchQueue.main.async {
-                    completion(errorMessage)
+                    completion("")
                 }
             }
         }
