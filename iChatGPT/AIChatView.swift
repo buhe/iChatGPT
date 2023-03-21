@@ -57,8 +57,8 @@ struct AIChatView: View {
                 HStack {
                     Text("\(chatModel.count) 对话")
                     Text("\(chatModel.tokens) Token")
-                    Text("\(chatModel.count != 0 ? chatModel.tokens / chatModel.count : 0) 平均 Token")
-                    Text("花了老公 \(price) 美金")
+                    Text("平均 \(chatModel.count != 0 ? chatModel.tokens / chatModel.count : 0) ")
+                    Text("花了老公 \(price) $")
                     Button{
                         chatModel.contents.removeAll()
                     } label: {
@@ -67,6 +67,7 @@ struct AIChatView: View {
                     .disabled(isWait.count > 0)
                 }
                 .font(.caption)
+                .padding()
                 ChatInputView(searchText: $searchText, chatModel: chatModel)
                     .padding([.leading, .trailing], 12)
             }

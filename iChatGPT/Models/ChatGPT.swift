@@ -11,7 +11,7 @@ import Combine
 import OpenAI
 
 class Chatbot {
-	var userAvatarUrl = "https://www.freelogovectors.net/wp-content/uploads/2023/01/chatgpt-logo-freelogovectors.net_.png"
+	var userAvatarUrl = "https://buhe-icon.s3.us-west-1.amazonaws.com/small.jpg"
     var openAIKey = ""
     var openAI:OpenAI
     var answer = ""
