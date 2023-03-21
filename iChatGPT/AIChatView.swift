@@ -10,7 +10,7 @@ import SwiftUI
 import MarkdownText
 
 struct AIChatView: View {
-    
+    let preToken = 0.000002
     @State private var isAddPresented: Bool = false
     @State private var searchText = ""
     @StateObject private var chatModel = AIChatModel(contents: [])
@@ -53,17 +53,20 @@ struct AIChatView: View {
                 
                 Spacer()
                 let isWait = chatModel.contents.filter({ $0.isResponse == false })
+                let price = Double(chatModel.tokens) * preToken
                 HStack {
                     Text("\(chatModel.count) 对话")
                     Text("\(chatModel.tokens) Token")
                     Text("\(chatModel.count != 0 ? chatModel.tokens / chatModel.count : 0) 平均 Token")
+                    Text("花了老公 \(price) 美金")
                     Button{
                         chatModel.contents.removeAll()
                     } label: {
                         Text("清除上下文")
                     }
+                    .disabled(isWait.count > 0)
                 }
-                .disabled(isWait.count > 0)
+                .font(.caption)
                 ChatInputView(searchText: $searchText, chatModel: chatModel)
                     .padding([.leading, .trailing], 12)
             }
