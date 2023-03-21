@@ -20,6 +20,8 @@ class AIChatModel: ObservableObject {
     
     var isRefreshSession: Bool = false
     @Published var contents: [AIChat] = []
+    @Published var tokens = 0
+    @Published var count = 0
     private var bot: Chatbot?
     init(contents: [AIChat]) {
         self.contents = contents
@@ -35,7 +37,11 @@ class AIChatModel: ObservableObject {
         var chat = AIChat(datetime: Date().currentDateString(), issue: prompt, userAvatarUrl: userAvatarUrl)
         contents.append(chat)
 
-        self.bot?.getChatGPTAnswer(prompts: contents){answer in
+        self.bot?.getChatGPTAnswer(prompts: contents){answer, tokens in
+            self.tokens = self.tokens + tokens
+            if tokens > 0 {
+                self.count = self.count + 1
+            }
             let content = answer
             DispatchQueue.main.async { [self] in
                 chat.answer = content

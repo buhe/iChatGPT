@@ -52,6 +52,18 @@ struct AIChatView: View {
                 .listStyle(InsetGroupedListStyle())
                 
                 Spacer()
+                let isWait = chatModel.contents.filter({ $0.isResponse == false })
+                HStack {
+                    Text("\(chatModel.count) 对话")
+                    Text("\(chatModel.tokens) Token")
+                    Text("\(chatModel.count != 0 ? chatModel.tokens / chatModel.count : 0) 平均 Token")
+                    Button{
+                        chatModel.contents.removeAll()
+                    } label: {
+                        Text("清除上下文")
+                    }
+                }
+                .disabled(isWait.count > 0)
                 ChatInputView(searchText: $searchText, chatModel: chatModel)
                     .padding([.leading, .trailing], 12)
             }
